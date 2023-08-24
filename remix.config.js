@@ -18,4 +18,6 @@ module.exports = {
     v2_normalizeFormMethod: true,
     v2_routeConvention: true,
   },
+  /** @type {import('@remix-run/dev').AppConfig} */
+  tailwind: true,
 };

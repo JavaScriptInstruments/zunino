@@ -1,39 +1,22 @@
-export const meta = () => {
-  return [
-    { title: "New Remix App" },
-    { name: "description", content: "Welcome to Remix!" },
-  ];
-};
+import Painting from "../components/Painting";
+import Header from "../components/Header";
+import { useLoaderData } from "@remix-run/react";
+import { getPaintings } from "../lib/WordPressService";
+
+export async function loader() {
+  return await getPaintings();
+}
 
 export default function Index() {
+  const paintings = useLoaderData();
   return (
-    <div style={{ fontFamily: "system-ui, sans-serif", lineHeight: "1.8" }}>
-      <h1>Welcome to Remix</h1>
-      <ul>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/blog"
-            rel="noreferrer"
-          >
-            15m Quickstart Blog Tutorial
-          </a>
-        </li>
-        <li>
-          <a
-            target="_blank"
-            href="https://remix.run/tutorials/jokes"
-            rel="noreferrer"
-          >
-            Deep Dive Jokes App Tutorial
-          </a>
-        </li>
-        <li>
-          <a target="_blank" href="https://remix.run/docs" rel="noreferrer">
-            Remix Docs
-          </a>
-        </li>
-      </ul>
+    <div>
+      <Header title="Home Page"></Header>
+      <div className="grid gap-8 grid-cols-1 lg:grid-cols-3 p-6">
+        {paintings.map((painting) => {
+          return <Painting painting={painting} key={painting.name}></Painting>;
+        })}
+      </div>
     </div>
   );
 }
