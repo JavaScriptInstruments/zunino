@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 
 export default function Painting({ painting }) {
   return (
-    <Link prefetch="render" to={`/painting/${painting.slug}`}>
+    <Link prefetch="render" to={`/paintings/${painting.slug}`}>
       <div
         className="flex
             items-center
