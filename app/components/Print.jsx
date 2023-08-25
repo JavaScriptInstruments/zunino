@@ -15,8 +15,8 @@ export default function Print({ print }) {
             hover:scale-105"
       >
         <div>
-          <h2 className="font-semibold text-2xl">{print.name}</h2>
           <img src={print.photo.sourceUrl} />
+          <h2 className="font-semibold text-2xl">{print.name}</h2>
         </div>
       </div>
     </Link>

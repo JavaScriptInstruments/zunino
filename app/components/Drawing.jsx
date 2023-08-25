@@ -15,8 +15,8 @@ export default function Drawing({ drawing }) {
             hover:scale-105"
       >
         <div>
-          <h2 className="font-semibold text-2xl">{drawing.name}</h2>
           <img src={drawing.photo.sourceUrl} />
+          <h2 className="font-semibold text-2xl">{drawing.name}</h2>
         </div>
       </div>
     </Link>

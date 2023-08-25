@@ -3,9 +3,7 @@ import Print from "../components/Print";
 import Drawing from "../components/Drawing";
 import Header from "../components/Header";
 import { useLoaderData } from "@remix-run/react";
-import { getPaintings } from "../lib/WordPressService";
-import { getPrints } from "../lib/WordPressService";
-import { getDrawings } from "../lib/WordPressService";
+import { getPaintings, getPrints, getDrawings } from "../lib/WordPressService";
 
 export async function loader() {
   const [paintings, prints, drawings] = await Promise.all([
