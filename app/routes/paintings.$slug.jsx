@@ -1,5 +1,5 @@
 // import Painting from "../components/Painting";
-import Header from "../components/Header";
+import Nav from "../components/Nav";
 import { useLoaderData } from "@remix-run/react";
 import { getPaintingBySlug } from "../lib/WordPressService";
 
@@ -12,7 +12,7 @@ export default function Index() {
   const painting = useLoaderData();
   return (
     <div>
-      <Header title="Home Page"></Header>
+      <Nav title="Home Page"></Nav>
       <div className="bg-gray-100 container mx-auto mt-6 p-6 rounded-lg">
         <h1>{painting.name}</h1>
         {/* <div>{painting.photo.altText}</div> */}

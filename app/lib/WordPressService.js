@@ -144,6 +144,6 @@ export async function getDrawingBySlug(slug) {
       id: slug,
     },
   });
-  const drawing = response?.data?.print;
+  const drawing = response?.data?.drawing;
   return drawing;
 }
