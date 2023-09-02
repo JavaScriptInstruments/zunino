@@ -9,9 +9,9 @@
 // } satisfies Config
 
 module.exports = {
-  content: ["./app/**/*.{ts,tsx,jsx,js,htm}"],
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+  ]
 };

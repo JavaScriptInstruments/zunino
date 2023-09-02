@@ -11,18 +11,22 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 
 const navigation = [
-  { name: "Home", href: "#", current: true },
-  { name: "Portfolio", href: "#", current: false },
-  { name: "CV", href: "#", current: false },
-  { name: "News", href: "#", current: false },
-  { name: "Contact", href: "#", current: false },
+  { name: "Home", href: "/", current: true },
+  // { name: "Portfolio", href: "#", current: false },
+  // { name: "CV", href: "#", current: false },
+  // { name: "News", href: "#", current: false },
+  // { name: "Contact", href: "#", current: false },
+  { name: "Drawings", href: "/drawing", current: false },
+  { name: "Paintings", href: "/painting", current: false },
+  { name: "Prints", href: "/print", current: false },
+  { name: "All", href: "/all", current: false}
 ];
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function Header({ title }) {
+export default function Nav({ title }) {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -43,7 +47,7 @@ export default function Header({ title }) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <h1 className="text-white text-2xl font-bold">Marc Zunino</h1>
+                  <h1 className="text-white text-2xl font-bold">Mark Zunino</h1>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">

@@ -2,7 +2,7 @@ import { Link } from "@remix-run/react";
 
 export default function Drawing({ drawing }) {
   return (
-    <Link prefetch="render" to={`/prints/${drawing.slug}`}>
+    <Link prefetch="render" to={`/drawings/${drawing.slug}`}>
       <div
         className="flex
             items-center
