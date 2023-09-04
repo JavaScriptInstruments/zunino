@@ -14,7 +14,7 @@ export default function Painting({ painting }) {
             hover:-translate-y-1
             hover:scale-105"
       >
-        <div>
+        <div c>
           <img src={painting.photo.sourceUrl} />
           <h2 className="font-semibold text-2xl">{painting.name}</h2>
         </div>
