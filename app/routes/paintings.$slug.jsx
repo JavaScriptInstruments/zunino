@@ -16,8 +16,11 @@ export default function Index() {
       <div className="bg-gray-100 container mx-auto mt-6 p-6 rounded-lg">
         <h1>{painting.name}</h1>
         {/* <div>{painting.photo.altText}</div> */}
-        <div>{painting.description}</div>
       </div>
+      <img
+        src={painting.photo.sourceUrl}
+        className="h-full object-auto object-center group-hover:opacity-75"
+      />
     </div>
   );
 }

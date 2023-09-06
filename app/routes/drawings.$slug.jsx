@@ -17,10 +17,17 @@ export default function Index() {
         <h1>{drawing.name}</h1>
         {/* <div>{drawing.photo.altText}</div> */}
       </div>
-      <img
-        src={drawing.slug.sourceUrl}
-        className="h-full object-auto object-center group-hover:opacity-75"
-      />
+      <div className="bg-white">
+        <div className="mx-auto px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
+          <div className="lg:grid lg:grid-cols-7 lg:grid-rows-1 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+            <div className="lg:col-span-4 lg:row-end-1">
+              <div className="aspect-h-3 aspect-w-4 overflow-hidden rounded-lg bg-gray-100">
+                <img src={drawing.photo.sourceUrl} className="object-cover object-center" />
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
