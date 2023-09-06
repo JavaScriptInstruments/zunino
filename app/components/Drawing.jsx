@@ -7,7 +7,7 @@ export default function Drawing({ drawing }) {
         <div className="h-full">
           <img
             src={drawing.photo.sourceUrl}
-            className="h-full object-auto object-center group-hover:opacity-75"
+            className="object-auto object-center group-hover:opacity-75"
           />
         </div>
       </div>
