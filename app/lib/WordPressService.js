@@ -35,6 +35,8 @@ export async function getPaintingBySlug(slug) {
         slug
         photo {
           altText
+          sourceUrl
+          title
         }
       }
     }
@@ -84,6 +86,8 @@ export async function getPrintBySlug(slug) {
         slug
         photo {
           altText
+          sourceUrl
+          title
         }
       }
     }
@@ -133,6 +137,8 @@ export async function getDrawingBySlug(slug) {
         slug
         photo {
           altText
+          sourceUrl
+          title
         }
       }
     }

@@ -1,17 +1,23 @@
-// import type { Config } from "tailwindcss"
+// import type { Config } from "tailwindcss";
 
-// module.exports = {
-//   content: ["./app/**/*.{js,jsx,ts,tsx}"],
-//   theme: {
-//     extend: {},
-//   },
-//   plugins: [],
-// } satisfies Config
+const defaultTheme = require("tailwindcss/defaultTheme");
+// const plugin = require('tailwindcss/plugin')
+/** @type {import('tailwindcss').Config} */
 
 module.exports = {
+  content: ["./app/**/*.{js,jsx,ts,tsx}"],
+
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        customfontname: ["Inter var", ...defaultTheme.fontFamily.sans],
+      },
+    },
   },
   plugins: [
-  ]
+    require("@tailwindcss/typography"),
+    require("@tailwindcss/forms"),
+    require("@tailwindcss/aspect-ratio"),
+    require("@tailwindcss/container-queries"),
+  ],
 };

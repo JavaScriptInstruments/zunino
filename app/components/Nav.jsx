@@ -19,7 +19,6 @@ const navigation = [
   { name: "Drawings", href: "/drawing", current: false },
   { name: "Paintings", href: "/painting", current: false },
   { name: "Prints", href: "/print", current: false },
-  { name: "All", href: "/all", current: false}
 ];
 
 function classNames(...classes) {
