@@ -14,7 +14,14 @@ export default function Photos() {
   ];
 
   return (
-    <div className="mt-16 sm:mt-20 mb-20 px-15">
+    <div className="mt-16 sm:mt-20 mb-20 p-20 ">
+      <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
+        Lorem ipsum dolor sit amet. ✨
+      </h2>
+      <p className="mt-6 text-lg leading-8 text-gray-600 mb-20">
+        Lorem ipsum dolor sit amet consect adipisicing elit. Possimus magnam
+        voluptatum cupiditate veritatis in accusamus quisquam.
+      </p>
       <div className="-my-4 flex justify-center gap-5 overflow-hidden py-4 sm:gap-8">
         {[image1, image2, image3, image4, image5].map((image, imageIndex) => (
           <div
