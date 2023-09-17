@@ -6,7 +6,7 @@ export default function Painting({ painting }) {
       <div className="relative">
         <div className="h-full">
           <img
-            src={painting.photo.sourceUrl}
+            src={painting.thumbnail.sourceUrl}
             className="object-auto object-center group-hover:opacity-75"
           />
         </div>

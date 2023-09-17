@@ -6,7 +6,7 @@ export default function Print({ print }) {
       <div className="relative">
         <div className="h-full">
           <img
-            src={print.photo.sourceUrl}
+            src={print.thumbnail.sourceUrl}
             className="object-auto object-center group-hover:opacity-75"
           />
         </div>

@@ -12,6 +12,11 @@ export async function getPaintings() {
             sourceUrl
             title
           }
+          thumbnail {
+            altText
+            sourceUrl
+            title
+          }
           slug
         }
       }
@@ -63,6 +68,11 @@ export async function getPrints() {
             sourceUrl
             title
           }
+          thumbnail {
+            altText
+            sourceUrl
+            title
+          }
           slug
         }
       }
@@ -110,6 +120,11 @@ export async function getDrawings() {
         nodes {
           name
           photo {
+            altText
+            sourceUrl
+            title
+          }
+          thumbnail {
             altText
             sourceUrl
             title
