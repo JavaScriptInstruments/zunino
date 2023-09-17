@@ -21,8 +21,8 @@ export default function Drawings() {
           <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {drawings.map((drawing) => {
               return (
-                <a key={drawing.name} className="group ">
-                  <div className="aspect-h-1 h-full w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-5 xl:aspect-w-7 ">
+                <a key={drawing.name} className="group">
+                  <div className="h-full w-full overflow-hidden rounded-lg bg-gray-200 aspect-h-5 aspect-w-7">
                     <Drawing drawing={drawing} key={drawing.name}></Drawing>
                   </div>
                   <h2 className="mt-2 text-sm text-gray-700">{drawing.name}</h2>

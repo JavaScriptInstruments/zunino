@@ -22,7 +22,7 @@ export default function Prints() {
                 {prints.map((print) => {
                   return (
                     <a key={print.name} className="group ">
-                      <div className="aspect-h-1 h-full w-full overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-5 xl:aspect-w-7 ">
+                      <div className="h-full w-full overflow-hidden rounded-lg bg-gray-200 aspect-h-5 aspect-w-7 ">
                         <Print print={print} key={print.name}></Print>
                       </div>
                       <h2 className="mt-2 text-sm text-gray-700">{print.name}</h2>

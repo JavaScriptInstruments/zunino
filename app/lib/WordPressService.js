@@ -35,9 +35,11 @@ export async function getPaintingBySlug(slug) {
   const PaintingQuery = gql`
     query GetPaintingBySlug($id: ID!) {
       painting(id: $id, idType: SLUG) {
-        description
-        name
         slug
+        yearPainted
+        type
+        dimensions
+        title
         photo {
           altText
           sourceUrl
@@ -91,9 +93,11 @@ export async function getPrintBySlug(slug) {
   const PrintQuery = gql`
     query GetPrintBySlug($id: ID!) {
       print(id: $id, idType: SLUG) {
-        description
-        name
         slug
+        yearPrinted
+        type
+        dimensions
+        title
         photo {
           altText
           sourceUrl
@@ -147,9 +151,11 @@ export async function getDrawingBySlug(slug) {
   const DrawingQuery = gql`
     query GetDrawingBySlug($id: ID!) {
       drawing(id: $id, idType: SLUG) {
-        description
-        name
         slug
+        yearDrawn
+        type
+        dimensions
+        title
         photo {
           altText
           sourceUrl
