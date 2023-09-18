@@ -1,6 +1,7 @@
 import { useLoaderData } from "@remix-run/react";
 import Nav from "../components/Nav";
 import Drawing from "../components/Drawing";
+import Footer from "../components/Footer";
 import { getDrawings } from "../lib/WordPressService";
 
 export async function loader() {
@@ -32,6 +33,7 @@ export default function Drawings() {
           </div>
         </div>
       </div>
+      <Footer />
     </div>
   );
 }

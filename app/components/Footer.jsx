@@ -11,12 +11,12 @@ const navigation = {
   //   { name: 'Guides', href: '#' },
   //   { name: 'API Status', href: '#' },
   // ],
-  company: [
-    { name: "About", href: "#" },
-    // { name: 'Blog', href: '#' },
-    // { name: 'Jobs', href: '#' },
-    // { name: 'Press', href: '#' },
-    // { name: 'Partners', href: '#' },
+  siteMap: [
+    { name: "Drawings", href: "/drawing" },
+    { name: 'Paintings', href: '/painting' },
+    { name: 'Prints', href: '/print' },
+    { name: 'CV', href: '/CV' },
+    { name: 'Contact', href: '/contact' },
   ],
   legal: [
     { name: "Claim", href: "#" },
@@ -27,11 +27,11 @@ const navigation = {
 
 export default function Example() {
   return (
-    <footer className="bg-gray-900" aria-labelledby="footer-heading">
+    <footer className="bg-gray-800" aria-labelledby="footer-heading">
       <h2 id="footer-heading" className="sr-only">
         Footer
       </h2>
-      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-32">
+      <div className="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8 lg:py-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           <img
             className="h-7"
@@ -68,10 +68,10 @@ export default function Example() {
             <div className="md:grid md:grid-cols-2 md:gap-8">
               <div>
                 <h3 className="text-sm font-semibold leading-6 text-white">
-                  Company
+                  Site Map
                 </h3>
                 <ul role="list" className="mt-6 space-y-4">
-                  {navigation.company.map((item) => (
+                  {navigation.siteMap.map((item) => (
                     <li key={item.name}>
                       <a
                         href={item.href}
@@ -103,6 +103,7 @@ export default function Example() {
             </div>
           </div>
         </div>
+          <h3 className="text-sm leading-6 text-white">Copyright © 2023 Mark Zunino. All Rights Reserved.</h3>
       </div>
     </footer>
   );
