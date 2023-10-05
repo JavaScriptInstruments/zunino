@@ -1,7 +1,7 @@
 // export default function Header({ title }) {
 //   return (
 //     <header className="relative w-full p-6 h-85px mx-auto bg-slate-200">
-//       <h1 className="text-4xl">Marc Zunino</h1>
+//       <h1 className="text-4xl">Mark Zunino</h1>
 //     </header>
 //   );
 // }
@@ -17,7 +17,7 @@ const navigation = [
   { name: "Paintings", href: "/painting", current: false },
   { name: "Prints", href: "/print", current: false },
   { name: "CV", href: "/CV", current: false },
-  { name: "Contact", href: "/contact", current: false }
+  { name: "Contact", href: "/contact", current: false },
 ];
 
 function classNames(...classes) {
@@ -26,7 +26,7 @@ function classNames(...classes) {
 
 export default function Nav({ title }) {
   return (
-    <Disclosure as="nav" className="bg-gray-800">
+    <Disclosure as="nav" className="bg-gray-500">
       {({ open }) => (
         <>
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -45,7 +45,16 @@ export default function Nav({ title }) {
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
-                  <h1 className="text-white text-2xl font-bold">Mark Zunino</h1>
+                  <h1
+                    className="text-white text-2xl"
+                    style={{
+                      fontFamily: "Nunito Sans Extra Light, sans-serif", // Use Nunito Sans as the font family
+                      fontSize: "24px", // Adjust font size as needed
+                      fontWeight: "200",
+                    }}
+                  >
+                    MARK ZUNINO
+                  </h1>
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
@@ -55,8 +64,8 @@ export default function Nav({ title }) {
                         href={item.href}
                         className={classNames(
                           item.current
-                            ? "bg-gray-900 text-white"
-                            : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                            ? "bg-gray-700 text-white"
+                            : "text-gray-300 hover:bg-gray-600 hover:text-white",
                           "rounded-md px-3 py-2 text-sm font-medium"
                         )}
                         aria-current={item.current ? "page" : undefined}
@@ -70,7 +79,7 @@ export default function Nav({ title }) {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="relative rounded-full bg-gray-700 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">View notifications</span>
@@ -155,8 +164,8 @@ export default function Nav({ title }) {
                   href={item.href}
                   className={classNames(
                     item.current
-                      ? "bg-gray-900 text-white"
-                      : "text-gray-300 hover:bg-gray-700 hover:text-white",
+                      ? "bg-gray-600 text-white"
+                      : "text-gray-300 hover:bg-gray-600 hover:text-white",
                     "block rounded-md px-3 py-2 text-base font-medium"
                   )}
                   aria-current={item.current ? "page" : undefined}
