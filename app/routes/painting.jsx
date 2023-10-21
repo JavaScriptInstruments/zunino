@@ -22,11 +22,11 @@ export default function Paintings() {
               <div className="grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
                 {paintings.map((painting) => {
                   return (
-                    <a key={painting.name} className="group ">
+                    <a key={painting.title} className="group ">
                       <div className="h-full w-full overflow-hidden rounded-lg bg-gray-200 aspect-h-5 aspect-w-7 ">
-                        <Painting painting={painting} key={painting.name}></Painting>
+                        <Painting painting={painting} key={painting.title}></Painting>
                       </div>
-                      <h2 className="mt-2 text-sm text-gray-700">{painting.name}</h2>
+                      <h2 className="mt-2 text-sm text-gray-700">{painting.title}</h2>
                     </a>
                   );
                 })}

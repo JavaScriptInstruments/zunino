@@ -2,48 +2,47 @@ import { client } from "./apollo";
 import { gql } from "@apollo/client";
 
 export async function getPaintings() {
-  const PaintingsQuery = gql`
-    query NewQuery {
-      paintings {
+  const ArtworksQuery = gql`
+    query Artworks {
+      artworks {
         nodes {
-          name
-          photo {
-            altText
-            sourceUrl
-            title
-          }
+          artworkTitle
+          artworkType
+          dimensions
+          yearProduced
           thumbnail {
             altText
             sourceUrl
-            title
           }
-          slug
+          image {
+            altText
+            sourceUrl
+          }
         }
       }
     }
   `;
   const response = await client.query({
-    query: PaintingsQuery,
+    query: ArtworksQuery,
   });
 
-  const paintings = response?.data?.paintings?.nodes;
+  const artworks = response?.data?.artworks?.nodes;
 
-  return paintings;
+  return artworks;
 }
 
 export async function getPaintingBySlug(slug) {
   const PaintingQuery = gql`
-    query GetPaintingBySlug($id: ID!) {
-      painting(id: $id, idType: SLUG) {
+    query GetArtworkBySlug($id: ID!) {
+      artwork(id: $id, idType: SLUG) {
         slug
-        yearPainted
-        type
+        artworkTitle
+        artworkType
+        yearProduced
         dimensions
-        title
         photo {
           altText
           sourceUrl
-          title
         }
       }
     }
