@@ -1,12 +1,12 @@
 import { Link } from "@remix-run/react";
 
-export default function Drawing({ drawing }) {
+export default function Artwork({ artwork }) {
   return (
-    <Link prefetch="render" to={`/drawings/${drawing.slug}`}>
+    <Link prefetch="render" to={`/artworks/${artwork.slug}`}>
       <div className="relative">
         <div className="h-full">
           <img
-            src={drawing.thumbnail.sourceUrl}
+            src={artwork.thumbnail.sourceUrl}
             className="object-auto object-center group-hover:opacity-75"
           />
         </div>

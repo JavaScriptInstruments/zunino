@@ -1,27 +1,56 @@
 import { client } from "./apollo";
 import { gql } from "@apollo/client";
 
-export async function getPaintings() {
+export async function getArtworkTypes() {
+  const TypesQuery = gql`
+  query ArtworkTypes {
+    artworks(first: 100) {
+      nodes {
+        artworkType
+      }
+    }
+  }`
+
+  const response = await client.query({
+    query: TypesQuery,
+  });
+
+  const artworks = response?.data?.artworks?.nodes;
+
+  const uniqueArtworkTypes = new Set();
+
+  artworks.forEach((artwork) => {
+    uniqueArtworkTypes.add(artwork.artworkType[0]);
+  });
+
+  const uniqueArtworkTypesList = [...uniqueArtworkTypes];
+
+  return uniqueArtworkTypesList;
+}
+
+export async function getArtworks() {
   const ArtworksQuery = gql`
-    query Artworks {
-      artworks {
-        nodes {
-          artworkTitle
-          artworkType
-          dimensions
-          yearProduced
-          thumbnail {
-            altText
-            sourceUrl
-          }
-          image {
-            altText
-            sourceUrl
-          }
+  query Artworks {
+    artworks(first: 100) {
+      nodes {
+        slug
+        artworkTitle
+        artworkType
+        dimensions
+        yearProduced
+        thumbnail {
+          altText
+          sourceUrl
+        }
+        image {
+          altText
+          sourceUrl
         }
       }
     }
-  `;
+  }
+  `
+
   const response = await client.query({
     query: ArtworksQuery,
   });
@@ -31,18 +60,76 @@ export async function getPaintings() {
   return artworks;
 }
 
-export async function getPaintingBySlug(slug) {
-  const PaintingQuery = gql`
-    query GetArtworkBySlug($id: ID!) {
-      artwork(id: $id, idType: SLUG) {
+export async function getArtworkBySlug(slug) {
+  const ArtworkQuery = gql`
+    query ArtworkBySlug($id: ID = "", $idType: ArtworkIdType = SLUG) {
+      artwork(id: $id, idType: $idType) {
         slug
         artworkTitle
         artworkType
-        yearProduced
         dimensions
+        yearProduced
+        image {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  `;
+
+  const response = await client.query({
+    query: ArtworkQuery,
+    variables: {
+      id: slug,
+    },
+  });
+  const artwork = response?.data?.artwork;
+  return artwork;
+}
+
+export async function getPaintings() {
+  const PaintingsQuery = gql`
+    query NewQuery {
+      paintings {
+        nodes {
+          name
+          photo {
+            altText
+            sourceUrl
+            title
+          }
+          thumbnail {
+            altText
+            sourceUrl
+            title
+          }
+          slug
+        }
+      }
+    }
+  `;
+  const response = await client.query({
+    query: PaintingsQuery,
+  });
+
+  const paintings = response?.data?.paintings?.nodes;
+
+  return paintings;
+}
+
+export async function getPaintingBySlug(slug) {
+  const PaintingQuery = gql`
+    query GetPaintingBySlug($id: ID!) {
+      painting(id: $id, idType: SLUG) {
+        slug
+        yearPainted
+        type
+        dimensions
+        title
         photo {
           altText
           sourceUrl
+          title
         }
       }
     }

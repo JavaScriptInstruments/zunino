@@ -2,14 +2,14 @@ import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 export default function Form() {
   return (
-    <form className=" mb-20">
+    <form className="mb-20">
       <div className="space-y-12 p-20">
         <div className="border-b border-gray-900/10 pb-12">
           <h2 className="text-base font-semibold leading-7 text-gray-900">
-            Place an enquiry
+            Place an inquire
           </h2>
           <p className="mt-1 text-sm leading-6 text-gray-600">
-            Drop me a message to enquire about having my work featured in your
+            Drop me a message to inquire about having my work featured in your
             gallery.
           </p>
 
