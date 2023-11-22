@@ -10,6 +10,7 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
+        logo: ["NunitoSans", "NunitoSans Extra Light", "NunitoSans Override"],
         customfontname: ["Inter var", ...defaultTheme.fontFamily.sans],
       },
     },

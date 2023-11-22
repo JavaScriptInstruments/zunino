@@ -12,7 +12,7 @@
     "start": "remix-serve build"
   },
   "dependencies": {
-    "@apollo/client": "^3.8.1",
+    "@apollo/client": "^3.8.6",
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
     "@remix-run/css-bundle": "^1.19.3",
@@ -24,7 +24,7 @@
     "@tailwindcss/forms": "^0.5.6",
     "@tailwindcss/typography": "^0.5.9",
     "@vercel/node": "^2.10.3",
-    "graphql": "^16.8.0",
+    "graphql": "^16.8.1",
     "isbot": "^3.6.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",

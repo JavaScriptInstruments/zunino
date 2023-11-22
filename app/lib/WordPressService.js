@@ -1,6 +1,92 @@
 import { client } from "./apollo";
 import { gql } from "@apollo/client";
 
+export async function getArtworkTypes() {
+  const TypesQuery = gql`
+  query ArtworkTypes {
+    artworks(first: 100) {
+      nodes {
+        artworkType
+      }
+    }
+  }`
+
+  const response = await client.query({
+    query: TypesQuery,
+  });
+
+  const artworks = response?.data?.artworks?.nodes;
+
+  const uniqueArtworkTypes = new Set();
+
+  artworks.forEach((artwork) => {
+    uniqueArtworkTypes.add(artwork.artworkType[0]);
+  });
+
+  const uniqueArtworkTypesList = [...uniqueArtworkTypes];
+
+  return uniqueArtworkTypesList;
+}
+
+export async function getArtworks() {
+  const ArtworksQuery = gql`
+  query Artworks {
+    artworks(first: 100) {
+      nodes {
+        slug
+        artworkTitle
+        artworkType
+        dimensions
+        yearProduced
+        thumbnail {
+          altText
+          sourceUrl
+        }
+        image {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  }
+  `
+
+  const response = await client.query({
+    query: ArtworksQuery,
+  });
+
+  const artworks = response?.data?.artworks?.nodes;
+
+  return artworks;
+}
+
+export async function getArtworkBySlug(slug) {
+  const ArtworkQuery = gql`
+    query ArtworkBySlug($id: ID = "", $idType: ArtworkIdType = SLUG) {
+      artwork(id: $id, idType: $idType) {
+        slug
+        artworkTitle
+        artworkType
+        dimensions
+        yearProduced
+        image {
+          altText
+          sourceUrl
+        }
+      }
+    }
+  `;
+
+  const response = await client.query({
+    query: ArtworkQuery,
+    variables: {
+      id: slug,
+    },
+  });
+  const artwork = response?.data?.artwork;
+  return artwork;
+}
+
 export async function getPaintings() {
   const PaintingsQuery = gql`
     query NewQuery {
@@ -8,6 +94,11 @@ export async function getPaintings() {
         nodes {
           name
           photo {
+            altText
+            sourceUrl
+            title
+          }
+          thumbnail {
             altText
             sourceUrl
             title
@@ -30,9 +121,11 @@ export async function getPaintingBySlug(slug) {
   const PaintingQuery = gql`
     query GetPaintingBySlug($id: ID!) {
       painting(id: $id, idType: SLUG) {
-        description
-        name
         slug
+        yearPainted
+        type
+        dimensions
+        title
         photo {
           altText
           sourceUrl
@@ -63,6 +156,11 @@ export async function getPrints() {
             sourceUrl
             title
           }
+          thumbnail {
+            altText
+            sourceUrl
+            title
+          }
           slug
         }
       }
@@ -81,9 +179,11 @@ export async function getPrintBySlug(slug) {
   const PrintQuery = gql`
     query GetPrintBySlug($id: ID!) {
       print(id: $id, idType: SLUG) {
-        description
-        name
         slug
+        yearPrinted
+        type
+        dimensions
+        title
         photo {
           altText
           sourceUrl
@@ -114,6 +214,11 @@ export async function getDrawings() {
             sourceUrl
             title
           }
+          thumbnail {
+            altText
+            sourceUrl
+            title
+          }
           slug
         }
       }
@@ -132,9 +237,11 @@ export async function getDrawingBySlug(slug) {
   const DrawingQuery = gql`
     query GetDrawingBySlug($id: ID!) {
       drawing(id: $id, idType: SLUG) {
-        description
-        name
         slug
+        yearDrawn
+        type
+        dimensions
+        title
         photo {
           altText
           sourceUrl
